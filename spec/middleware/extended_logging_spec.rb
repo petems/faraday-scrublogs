@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'logger'
 
-describe Faraday::Conductivity::ExtendedLogging do
+describe Faraday::ScrubLogs::ExtendedLogging do
 
   subject(:log) { io.read }
 
@@ -19,6 +19,11 @@ describe Faraday::Conductivity::ExtendedLogging do
 
   it "includes the complete URL" do
     log.should include "http://widgets.example.org/test"
+  end
+
+  it "scrubs the logs of data" do
+    log.should include "?client_id=[REDACTED]&api_key=[REDACTED]"
+    log.should_not include "?client_id=ABCD123&api_key=123ABCD"
   end
 
   it "includes the response status" do

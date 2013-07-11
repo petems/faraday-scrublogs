@@ -1,16 +1,16 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'faraday/conductivity/version'
+require 'faraday/scrublogs/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "faraday-conductivity"
-  gem.version       = Faraday::Conductivity::VERSION
-  gem.authors       = ["iain"]
-  gem.email         = ["iain@iain.nl"]
-  gem.description   = %q{Extra Faraday middleware, geared towards a service oriented architecture.}
-  gem.summary       = %q{Extra Faraday middleware, geared towards a service oriented architecture.}
-  gem.homepage      = "https://github.com/yourkarma/faraday-conductivity"
+  gem.name          = "faraday-scrublogs"
+  gem.version       = Faraday::ScrubLogs::VERSION
+  gem.authors       = ["petems"]
+  gem.email         = ["p.morsou@gmail.com"]
+  gem.description   = %q{Faraday middleware to scrub logs.}
+  gem.summary       = %q{Faraday middleware to scrub logs.}
+  gem.homepage      = "https://github.com/petems/faraday-scrublogs"
   gem.license       = "MIT"
 
   gem.files         = `git ls-files`.split($/)

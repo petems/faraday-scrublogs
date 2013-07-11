@@ -1,4 +1,4 @@
-require 'faraday/conductivity'
+require 'faraday/scrublogs'
 
 module SpecHelper
 
@@ -7,7 +7,7 @@ module SpecHelper
   end
 
   def create_connection
-    Faraday.new(url: "http://widgets.example.org") do |faraday|
+    Faraday.new(url: "http://widgets.example.org/?client_id=ABCD123&api_key=123ABCD") do |faraday|
       yield faraday
       faraday.adapter :test, stubs
     end
