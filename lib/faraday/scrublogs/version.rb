@@ -1,5 +1,5 @@
 module Faraday
-  module Conductivity
+  module ScrubLogs
     VERSION = "0.1.1"
   end
 end
