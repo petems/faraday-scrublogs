@@ -2,11 +2,11 @@ require "faraday"
 
 require "faraday/scrublogs/version"
 
-require "faraday/scrublogs/extended_logging"
+require "faraday/scrublogs/scrublogs"
 
 module Faraday
   module ScrubLogs
   end
-  register_middleware :middleware, :extended_logging => Faraday::ScrubLogs::ExtendedLogging
+  register_middleware :middleware, :scrublogs => Faraday::ScrubLogs::ScrubLogs
 end
 
