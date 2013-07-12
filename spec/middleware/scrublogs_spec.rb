@@ -88,7 +88,7 @@ describe Faraday::ScrubLogs::ScrubLogs do
 
     def connection
       create_connection do |faraday|
-        faraday.use :scrublogs, :logger => logger, :scrub => [/client_id=[a-zA-z0-9]*/,/api_key=[a-zA-z0-9]*/]
+        faraday.use :scrublogs, :logger => logger, :scrub => [/(client_id=)([a-zA-z0-9]*)/,/(api_key=)([a-zA-z0-9]*)/]
       end
     end
 
@@ -173,8 +173,7 @@ describe Faraday::ScrubLogs::ScrubLogs do
     end
 
     it "does not scrub the logs of data" do
-      pending 'Not implemented yet, currently hard-coded'
-      log.should include "DONTFINDME"
+      log.should_not include "DONTFINDME"
       log.should_not include "[REDACTED]"
     end
 

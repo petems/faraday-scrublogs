@@ -37,12 +37,14 @@ module Faraday
       end
 
       def scrub_url(scrub_me)
+        scrub_words = @options[:scrub]
+        return_string = scrub_me.to_s
         if scrub_logs?
-          blah = scrub_me.to_s.gsub!(/client_id=[a-zA-z0-9]*/,'client_id=[REDACTED]')
-          blah = blah.to_s.gsub!(/api_key=[a-zA-z0-9]*/,'api_key=[REDACTED]')
-        else
-          scrub_me
+          scrub_words.each do | scrub_word |
+            return_string = return_string.gsub(scrub_word,'\1[REDACTED]')
+          end
         end
+        return_string
       end
 
       def request_info(env)
