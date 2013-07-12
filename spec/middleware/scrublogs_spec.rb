@@ -67,7 +67,7 @@ describe Faraday::ScrubLogs::ScrubLogs do
 
   end
 
-  context ':scrub => false' do
+  context ':scrub => [/DONTFINDME/]' do
 
     subject(:log) { io.read }
 
@@ -88,7 +88,7 @@ describe Faraday::ScrubLogs::ScrubLogs do
 
     def connection
       create_connection do |faraday|
-        faraday.use :scrublogs, :logger => logger, :scrub => false
+        faraday.use :scrublogs, :logger => logger, :scrub => [/DONTFINDME/]
       end
     end
 
@@ -109,8 +109,9 @@ describe Faraday::ScrubLogs::ScrubLogs do
     end
 
     it "does not scrub the logs of data" do
-      log.should include "?client_id=ABCD123&api_key=123ABCD"
-      log.should_not include "?client_id=[REDACTED]&api_key=[REDACTED]"
+      pending 'Not implemented yet, currently hard-coded'
+      log.should include "DONTFINDME"
+      log.should_not include "[REDACTED]"
     end
 
     it "includes the response status" do
