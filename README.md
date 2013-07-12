@@ -1,5 +1,7 @@
 # Faraday::Scrublogs
 
+[![Build Status](https://travis-ci.org/petems/faraday-scrublogs.png?branch=master)](https://travis-ci.org/petems/faraday-scrublogs)
+
 Faraday Middleware to scrub logs of sensitive information
 
 Currently this is a fork from 'Faraday::Conductivity' that heavily modifies it for my needs...
